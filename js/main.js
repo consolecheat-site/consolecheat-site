@@ -1,5 +1,6 @@
 const saveListEl = document.getElementById('save-list');
 const searchInput = document.getElementById('search');
+const sortSelect = document.getElementById('sort');
 
 let saves = [];
 
@@ -12,19 +13,28 @@ fetch('saves.json')
 
 function renderSaves(list) {
   saveListEl.innerHTML = '';
-  list.forEach(save => {
+
+  // Sort by date
+  const sorted = [...list].sort((a, b) => {
+    if (sortSelect.value === 'newest') return new Date(b.date) - new Date(a.date);
+    else return new Date(a.date) - new Date(b.date);
+  });
+
+  sorted.forEach(save => {
     const div = document.createElement('div');
     div.className = 'save-card';
     div.innerHTML = `
       <h3>${save.game} - ${save.title}</h3>
-      <p>Plattform: ${save.platform} | Region: ${save.region}</p>
+      <p>Platform: ${save.platform} | Region: ${save.region}</p>
       <p>Tags: ${save.tags}</p>
+      <p>Date: ${save.date}</p>
       <button onclick="startOGAds('${save.file_path}')">Download</button>
     `;
     saveListEl.appendChild(div);
   });
 }
 
+// Search
 searchInput.addEventListener('input', e => {
   const query = e.target.value.toLowerCase();
   const filtered = saves.filter(s => 
@@ -35,6 +45,9 @@ searchInput.addEventListener('input', e => {
   renderSaves(filtered);
 });
 
+// Sort change
+sortSelect.addEventListener('change', () => renderSaves(saves));
+
 function startOGAds(link) {
-  alert('Hier würde der OGAds-Locker starten und danach zum Link weiterleiten.');
+  alert('OGAds locker would start here before redirecting to the link.');
 }
