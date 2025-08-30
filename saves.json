@@ -1,0 +1,20 @@
+[
+  {
+    "game": "FIFA 25",
+    "title": "Ultimate Team",
+    "platform": "PS4",
+    "region": "EU",
+    "tags": "Level 50,Coins",
+    "file_path": "https://www.mediafire.com/file/abc123/FIFA25Save.ps4",
+    "downloads": 123
+  },
+  {
+    "game": "Spider-Man",
+    "title": "Max Trophäen",
+    "platform": "PS4",
+    "region": "US",
+    "tags": "100%",
+    "file_path": "https://www.mediafire.com/file/xyz456/SpidermanSave.ps4",
+    "downloads": 45
+  }
+]

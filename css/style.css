@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; background: #111; color: #eee; margin:0; }
+header { padding: 1em; background:#222; display:flex; justify-content:space-between; }
+#hero { padding: 2em; text-align:center; }
+#save-list { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1em; padding:1em; }
+.save-card { background:#222; padding:1em; border-radius:10px; }
+.save-card button { margin-top:0.5em; padding:0.5em 1em; background:#0af; border:none; color:#fff; cursor:pointer; border-radius:5px; }
+.save-card button:hover { background:#08c; }
+footer { text-align:center; padding:1em; background:#222; margin-top:2em; }
